@@ -1,5 +1,10 @@
 #!/bin/bash
-sqlite-utils insert schools.db enrollments school.csv --csv --detect-types
+sqlite3 schools.db <<EOS
+.mode csv
+.import school.csv enrollments
+.import district.csv districts
+.import state.csv states
+EOS
 sqlite-utils transform schools.db enrollments \
     --type county_state_id integer \
     --type district_nces_id integer \
