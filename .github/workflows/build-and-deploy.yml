@@ -48,4 +48,4 @@ jobs:
       run: |-
         gcloud config set run/region us-central1
         gcloud config set project datasette-222320
-        ./deploy.sh
+        ./publish.sh
