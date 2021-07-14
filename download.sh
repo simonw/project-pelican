@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euf -o pipefail
+
 download_dir="${DOWNLOAD_DIR:-.}"
 mkdir -p $download_dir
 for filename in state.csv district.csv school.csv;

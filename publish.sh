@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euf -o pipefail
+
 datasette publish cloudrun schools.db \
     --install datasette-auth-passwords \
     -m metadata.yml \
