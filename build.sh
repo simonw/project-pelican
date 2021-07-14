@@ -8,7 +8,7 @@ sqlite3 schools.db <<EOS
 .mode csv
 .import school.csv enrollments
 .import district.csv districts
-.import data/state.csv states
+.import state.csv states
 EOS
 popd
 mv ~/data/schools.db .
