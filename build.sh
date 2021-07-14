@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euf -o pipefail
 
+ls ~/data
+
 pushd ~/data
 sqlite3 schools.db <<EOS
 .mode csv
