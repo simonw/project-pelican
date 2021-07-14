@@ -1,0 +1,51 @@
+name: Build and deploy database
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - uses: actions/cache@v2
+      name: Configure pip caching
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - uses: actions/cache@v2
+      name: Configure HTTP download caching
+      with:
+        path: ~/data
+        key: ${{ runner.os }}-http-download-cache
+    - name: Install Python dependencies
+      run: |
+        pip install -r requirements.txt
+    - name: Download CSVs
+      env:
+        JWT: ${{ secrets.JWT }}
+      run: |
+        DOWNLOAD_DIR=~/data ./download.sh
+    - name: Build database
+      run: ./build.sh
+    - name: Set up Cloud Run
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        version: '275.0.0'
+        service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+    - name: Deploy to Cloud Run
+      run: |-
+        gcloud config set run/region us-central1
+        gcloud config set project datasette-222320
+        ./deploy.sh
