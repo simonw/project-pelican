@@ -1,5 +1,6 @@
 #!/bin/bash
 download_dir="${DOWNLOAD_DIR:-.}"
+mkdir -p $download_dir
 for filename in state.csv district.csv school.csv;
 do
   signed_url=$(curl -s 'https://api.biglocalnews.org/graphql' \
