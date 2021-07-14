@@ -6,5 +6,5 @@ datasette publish cloudrun schools.db \
     -m metadata.yml \
     --template-dir templates \
     --service project-pelican \
-    --extra-options "--setting sql_time_limit_ms 10000 --setting facet_time_limit_ms 10000" \
+    --extra-options "--setting trace_debug 1 --setting suggest_facets off --setting sql_time_limit_ms 10000 --setting facet_time_limit_ms 10000" \
     --memory 4Gi
