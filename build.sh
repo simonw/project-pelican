@@ -19,5 +19,8 @@ sqlite-utils transform schools.db enrollments \
     --type school_nces_id integer \
     --type school_state_id integer \
     --type year integer
+sqlite-utils create-index schools.db enrollments state
+sqlite-utils create-index schools.db enrollments school_nces_id
+sqlite-utils create-index schools.db enrollments district_nces_id
 sqlite-utils enable-fts schools.db enrollments school
 sqlite-utils vacuum schools.db
