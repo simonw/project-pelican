@@ -1,4 +1,4 @@
 sqlite-utils
 datasette
 conditional-get
-sqlite-transform
+sqlite-transform>=1.1
