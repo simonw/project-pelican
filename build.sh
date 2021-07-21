@@ -26,7 +26,7 @@ do
     --code '
 if value.isdigit() or value.replace(",", "").isdigit() or value.endswith(".0") or value.endswith(".5") or value.startswith("<"):
     return int(float(value.replace(",", "").replace("<", "")))
-' --output "${column}_int" --output-type integer
+' --output "${column}_int" --output-type integer | cat
 done
 # Create some indexes
 sqlite-utils create-index schools.db enrollments state
