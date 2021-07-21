@@ -1,3 +1,4 @@
 sqlite-utils
 datasette
 conditional-get
+sqlite-transform
