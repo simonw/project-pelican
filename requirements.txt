@@ -2,3 +2,5 @@ sqlite-utils
 datasette
 conditional-get
 sqlite-transform>=1.1
+datasette-remote-metadata
+datasette-auth-passwords

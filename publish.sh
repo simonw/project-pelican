@@ -5,6 +5,7 @@ datasette publish cloudrun schools.db \
     --install datasette-auth-passwords \
     --install datasette-vega \
     --install datasette-rure \
+    --install datasette-remote-metadata \
     -m metadata.yml \
     --template-dir templates \
     --service project-pelican \
