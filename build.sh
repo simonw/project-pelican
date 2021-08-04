@@ -28,7 +28,10 @@ if value.isdigit() or value.replace(",", "").isdigit() or value.endswith(".0") o
 ' --output "${column}_int" --output-type integer --silent
 done
 # Create some indexes
-sqlite-utils create-index schools.db enrollments state
+sqlite-utils create-index schools.db enrollments state grade
+sqlite-utils create-index schools.db enrollments grade
+sqlite-utils create-index schools.db enrollments year
+sqlite-utils create-index schools.db enrollments state year
 sqlite-utils create-index schools.db enrollments school_nces_id
 sqlite-utils create-index schools.db enrollments district_nces_id
 # Enable full-text search
