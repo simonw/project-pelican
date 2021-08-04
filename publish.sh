@@ -7,6 +7,7 @@ datasette publish cloudrun schools.db \
     --install datasette-rure \
     --install datasette-remote-metadata \
     --install datasette-json-html \
+    --install pysqlite3-binary \
     -m metadata.yml \
     --template-dir templates \
     --service project-pelican \
