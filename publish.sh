@@ -2,7 +2,6 @@
 set -euf -o pipefail
 
 datasette publish cloudrun schools.db \
-    --install datasette-auth-passwords \
     --install datasette-vega \
     --install datasette-rure \
     --install datasette-remote-metadata \

@@ -2,7 +2,5 @@ title: Stanford School Enrollment Project
 about: Big Local
 about_url: https://biglocalnews.org/
 plugins:
-  datasette-auth-passwords:
-    biglocal_password_hash: pbkdf2_sha256$260000$25ca6ed793a78b27fa323e6ad8681e00$diiZJyfZN5N5D+QkqqakJ71riQYIT7RQFlkvlwF+tfA=
   datasette-remote-metadata:
     url: https://bln-datasettes-configuration.vercel.app/project-pelican.yml
