@@ -1,4 +1,4 @@
 sqlite-utils>=3.14
 conditional-get
-https://github.com/simonw/datasette/archive/a1f383035698da8bf188659390af6e53ffeec940.zip
+datasette
 datasette-remote-metadata
